@@ -35,6 +35,10 @@ class music(commands.Cog):
         source = discord.FFmpegPCMAudio(source = url2, **FFMPEG_OPTIONS)
         vc.play(source)
         await ctx.send("ПОДПИСЫВАЙТЕСЬ НА КАНАЛ https://www.youtube.com/channel/UCw8Ecp0fPBRJBNiKGT0FmJg")
+        
+        while True:
+            if ctx.author.voice is None:
+                await ctx.voice_client.disconnect()
 
 def setup(client):
     client.add_cog(music(client))
