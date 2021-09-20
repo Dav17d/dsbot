@@ -36,9 +36,6 @@ class music(commands.Cog):
         vc.play(source)
         await ctx.send("ПОДПИСЫВАЙТЕСЬ НА КАНАЛ https://www.youtube.com/channel/UCw8Ecp0fPBRJBNiKGT0FmJg")
         
-        while True:
-            if ctx.author.voice is None:
-                await ctx.voice_client.disconnect()
 
 def setup(client):
     client.add_cog(music(client))
