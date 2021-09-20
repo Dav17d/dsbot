@@ -16,7 +16,8 @@ class music(commands.Cog):
         if ctx.author.voice is None:
             return await ctx.send("Зайди в войс, даун")
         if 'list' in url:
-            return await ctx.send("Кидай ссылку на видос, сука, а не на плейлист!")        
+            ind = url.find('list')
+            url = url[0:(ind-1)]
         voice_channel = ctx.author.voice.channel
         if ctx.voice_client is None:
             await voice_channel.connect()
