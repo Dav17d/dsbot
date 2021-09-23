@@ -35,7 +35,7 @@ class music(commands.Cog):
 
         source = discord.FFmpegPCMAudio(source = url2, **FFMPEG_OPTIONS)
         vc.play(source)
-        await ctx.send("хыхы")
+        await ctx.send("хохлы")
         
 
 def setup(client):
