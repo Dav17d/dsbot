@@ -1,11 +1,17 @@
-import discord
+import discord, youtube_dl
+from selenium import webdriver
 from discord.ext import commands
-import youtube_dl
 
 class music(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    def search(searchInput):
+        driver = webdriver.PhantomJS()
+        driver.get(f"https://www.youtube.com/results?search_query={searchInput}&sp=EgIQAQ%253D%253D")
+        xpath = driver.find_element_by_xpath("/html/body/ytd-app/div/ytd-page-manager/ytd-search/div[1]/ytd-two-column-search-results-renderer/div/ytd-section-list-renderer/div[2]/ytd-item-section-renderer/div[3]/ytd-video-renderer[1]/div[1]/ytd-thumbnail/a")
+        link = xpath.get_attribute("href")
+        return link
 
     @commands.command()
     async def disconnect(self, ctx):
@@ -14,7 +20,9 @@ class music(commands.Cog):
     @commands.command()
     async def p(self, ctx, url):
         if ctx.author.voice is None:
-            return await ctx.send("Зайди в войс, даун")
+            return await ctx.send("Зайди в войс")
+        if 'youtube' not in url:
+            url = search(url)
         if 'list' in url:
             ind = url.find('list')
             url = url[0:(ind-1)]
