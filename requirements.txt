@@ -3,3 +3,4 @@ youtube_dl==2021.6.6
 pynacl==1.4.0
 wheel==0.37.0
 ffmpeg==1.4
+selenium==3.141.0
