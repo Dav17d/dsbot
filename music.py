@@ -1,3 +1,4 @@
+import os
 import discord, youtube_dl
 from selenium import webdriver
 from discord.ext import commands
