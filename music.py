@@ -6,12 +6,12 @@ class music(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    def search(self, searchInput):
+    async def search(self, searchInput):
         driver = webdriver.PhantomJS()
         driver.get(f"https://www.youtube.com/results?search_query={searchInput}&sp=EgIQAQ%253D%253D")
         xpath = driver.find_element_by_xpath("/html/body/ytd-app/div/ytd-page-manager/ytd-search/div[1]/ytd-two-column-search-results-renderer/div/ytd-section-list-renderer/div[2]/ytd-item-section-renderer/div[3]/ytd-video-renderer[1]/div[1]/ytd-thumbnail/a")
         link = xpath.get_attribute("href")
-        return link
+        return await link
 
     @commands.command()
     async def disconnect(self, ctx):
