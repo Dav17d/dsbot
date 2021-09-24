@@ -67,7 +67,7 @@ class music(commands.Cog):
             info = ydl.extract_info(url, download = False)
         url2 = info['formats'][0]['url']
 
-        source = discord.FFmpegPCMAudio(executable="C:\\Users\\David\\Desktop\\disbot\\ffmpeg\\ffmpeg.exe",source = url2, **FFMPEG_OPTIONS)
+        source = discord.FFmpegPCMAudio(source = url2, **FFMPEG_OPTIONS)
         vc.play(source)
         await ctx.send("хохлы")
         
