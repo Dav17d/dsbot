@@ -1,3 +1,3 @@
 https://github.com/kitcast/buildpack-ffmpeg.git
 https://github.com/xrisk/heroku-opus.git
-https://github.com/stomita/heroku-buildpack-phantomjs
+https://github.com/pyronlaboratory/heroku-integrated-firefox-geckodriver
