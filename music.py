@@ -45,7 +45,7 @@ class music(commands.Cog):
         if ctx.author.voice is None:
             return await ctx.send("Зайди в войс")
         
-        if 'youtube' not in userInput:
+        if 'youtu' not in userInput:
             url = search(self, userInput)
         elif 'list' in userInput:
             ind = userInput.find('list')
