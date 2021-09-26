@@ -2,27 +2,14 @@ import os
 import discord, youtube_dl
 from selenium import webdriver
 from discord.ext import commands
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def load_driver():
-	options = webdriver.FirefoxOptions()
-
-	options.log.level = "trace"
-
-	options.add_argument("-remote-debugging-port=9224")
-	options.add_argument("-headless")
-	options.add_argument("-disable-gpu")
-	options.add_argument("-no-sandbox")
-
-	binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
-
-	firefox_driver = webdriver.Firefox(
-		firefox_binary=binary,
-		executable_path=os.environ.get('GECKODRIVER_PATH'),
-		options=options)
-
-	return firefox_driver
+	chrome_options = Options()
+	chrome_options.binary_location = GOOGLE_CHROME_BIN
+	chrome_options.add_argument('--disable-gpu')
+	chrome_options.add_argument('--no-sandbox')
+	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+	return driver
 
 def search(self, searchInput):
     driver = load_driver()
