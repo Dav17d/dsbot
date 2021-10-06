@@ -60,7 +60,7 @@ class music(commands.Cog):
 
         source = discord.FFmpegPCMAudio(source = url2, **FFMPEG_OPTIONS)
         vc.play(source)
-        await ctx.send("хохлы")
+        await ctx.send("Запускаю")
         
 
 def setup(client):
